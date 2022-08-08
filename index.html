@@ -1,0 +1,567 @@
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        background-color: #000000;
+    }
+    html{
+        scroll-behavior: smooth;
+    }
+    .logo-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        user-select: none;
+        height: 40px;
+    }
+    .logo-container h1{
+        font-family: "Qenbay", sans-serif;
+        font-size: 30px;
+        height: 27px;
+    }
+    nav{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: #eeeeee;
+        margin: 0 110px;
+    }
+    nav svg{
+        width: 25px;
+        fill: #eeeeee;
+        cursor: pointer;
+        margin-left: 10px;
+        transition: 0.5s ease;
+    }
+    .logo-container svg{
+        cursor: default;
+        animation: circle-rotate 5s linear infinite;
+    }
+    .social-container svg:hover{
+        fill: #FEC47A;
+    }
+    nav ul li{
+        list-style-type: none;
+        display: inline-block;
+        text-transform: uppercase;
+        font-family: "Neue Montreal Light", sans-serif;
+        font-size: 18px;
+        font-weight: 500;
+        margin-right: 20px;
+        padding: 20px 7.5px;
+        cursor: pointer;
+        user-select: none;
+        transition: 0.3s ease;
+    }
+    nav ul li:nth-child(1){
+        margin-left: -41px;
+    }
+    nav ul li:hover{
+        color: #FEC47A;
+    }
+    .first-page{
+        color: #eeeeee;
+        margin: 0 110px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .first-page .title{
+        text-transform: uppercase;
+        font-family: "Neue Montreal", sans-serif;
+        font-weight: 600;
+        text-align: right;
+        font-size: 103px;
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke-color: #FEC47A;
+        -webkit-text-stroke-width: .5px;
+        max-width: 1000px;
+    }
+    .first-page .subtitle{
+        font-size: 23px;
+        font-family: "Neue Montreal Light", sans-serif;
+        font-weight: 100;
+        width: 580px;
+        text-align: center;
+        position: relative;
+        top: -90px;
+        right: -15px;
+    }
+    .text{
+        margin-top: 150px;
+    }
+    .first-page .circle-gradient{
+        height: 400px;
+        width: 400px;
+        border-radius: 400px;
+        z-index: -1;
+        filter: blur(90px);
+        position: relative;
+        top: -420px;
+        right: -450px;
+        background: linear-gradient(320deg, rgba(253,29,29,1) 0%, rgba(243,117,38,1) 56%, rgba(252,176,69,1) 100%);
+        animation: circle-rotate 5s linear infinite;
+    }
+    @keyframes circle-rotate{
+        0%{
+            filter: blur(90);
+        }
+        50%{
+            filter: blur(30);
+        }
+        100%{
+            filter: blur(90);
+        }
+    }
+    .second-page{
+        color: #eeeeee;
+        margin-left: 110px;
+        margin-right: 110px;
+        margin-top: -150px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .second-page #title{
+        text-align: center;
+        font-family: "Neue Montreal Bold", sans-serif;
+        color: #FEC47A;
+        font-size: 30px;
+        margin-bottom: 30px;
+    }
+    .definition h2{
+        text-align: center;
+        width: fit-content;
+        margin-bottom: 40px;
+        margin-top: 0;
+    }
+    .definition h2 span:nth-child(1){
+        font-family: "Neue Montreal Bold", sans-serif;
+        font-size: 80px;
+        font-weight: 600;
+        color: #eeeeee;
+        /*-webkit-text-fill-color: transparent;*/
+        /*-webkit-text-stroke-color: #eeeeee;*/
+        /*-webkit-text-stroke-width: .5px;*/
+    }
+    .definition h2 span:nth-child(3) {
+        color: #eeeeee;
+        font-family: "Neue Montreal Medium", sans-serif;
+        font-size: 25px;
+    }
+    .definition h2 span:nth-child(5) {
+        color: #eeeeee;
+        font-family: "Neue Montreal Light", sans-serif;
+        font-size: 23px;
+        font-weight: 100;
+    }
+    .definitions-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: fit-content;
+        height: 700px;
+    }
+    .second-page .items-wrapper img{
+        width: 500px;
+    }
+    .items-wrapper{
+        display: flex;
+    }
+    .third-page{
+        margin: 0 110px;
+        color: #eeeeee;
+        margin-top: 115px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .third-page #title-2{
+        text-align: center;
+        font-family: "Neue Montreal Bold", sans-serif;
+        color: #FEC47A;
+        font-size: 30px;
+        margin-bottom: 30px;
+    }
+    .third-page #subtitle-2{
+        font-family: "Neue Montreal Bold", sans-serif;
+        font-size: 80px;
+        max-width: 1100px;
+        margin-top: 0;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    .grid-container{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 25px;
+        row-gap: 35px;
+    }
+    .box{
+        max-width: 350px;
+        height: 200px;
+        border: 1px solid #FEC47A;
+        border-radius: 10px;
+    }
+    .box h1{
+        text-align: center;
+        font-family: "Neue Montreal Bold", sans-serif;
+        color: #eeeeee;
+        font-size: 30px;
+        margin: 15px 10px 10px 10px;
+    }
+    .box h2{
+        font-family: "Neue Montreal Light", sans-serif;
+        font-size: 23px;
+        font-weight: 100;
+        margin: 0 15px;
+        text-align: center;
+    }
+    .fourth-page{
+        margin: 0 110px;
+        margin-top: 90px;
+        color: #eeeeee;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .fourth-page #title-3{
+        font-family: "Neue Montreal Bold", sans-serif;
+        font-size: 50px;
+    }
+    .FAQ-wrapper{
+        display: flex;
+        justify-content: space-between;
+        width: 1100px;
+        user-select: none;
+        border-bottom: 1px solid rgba(238, 238, 238, 0.51);
+    }
+    .FAQ{
+        cursor: pointer;
+    }
+    .FAQ h1{
+        font-family: "Neue Montreal Bold", sans-serif;
+        font-size: 30px;
+    }
+    .FAQ svg{
+        fill: #eeeeee;
+        width: 25px;
+        transition: 0.3s ease;
+    }
+    .more-info-container{
+        margin-top: 100px;
+    }
+    .more-info-container h1{
+        text-align: center;
+        font-family: "Neue Montreal Bold", sans-serif;
+        color: #FEC47A;
+        font-size: 23px;
+        margin-bottom: 30px;
+    }
+    .more-info-container h2{
+        font-family: "Neue Montreal Bold", sans-serif;
+        font-size: 30px;
+        padding: 30px;
+        border-radius: 10px;
+        color: black;
+        background-color: #FEC47A;
+        margin-bottom: 100px;
+    }
+    .FAQ h3{
+        font-size: 23px;
+        font-family: "Neue Montreal Light", sans-serif;
+        font-weight: 100;
+        width: 1100px;
+
+        display: block;
+        transition: display 0.3s ease;
+    }
+    a {
+        color: inherit; /* blue colors for links too */
+        text-decoration: inherit; /* no underline */
+    }
+    .FAQ .content{
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height .5s ease;
+    }
+    .FAQ.active .FAQ-wrapper svg{
+        transform: rotate(45deg);
+        fill: #FEC47A;
+    }
+    .FAQ.active .content{
+        max-height: 500px;
+        transition: 1s linear;
+    }
+    /*@media (max-width: 900px){*/
+    /*    body{*/
+    /*        border: 1px solid blue;*/
+    /*    }*/
+    /*    nav{*/
+    /*        margin: 20px 20px 0 20px;*/
+    /*    }*/
+    /*    nav ul{*/
+    /*        display: none;*/
+    /*    }*/
+    /*    .social-container svg{*/
+    /*        width: 35px;*/
+    /*        margin-left: 20px;*/
+    /*    }*/
+    /*    .first-page .text{*/
+    /*        display: flex;*/
+    /*        flex-direction: column;*/
+    /*        align-items: center;*/
+
+    /*        border: 1px solid blue;*/
+    /*    }*/
+    /*    .first-page .title{*/
+    /*        font-size: 45px;*/
+    /*        text-align: center;*/
+    /*        width: auto;*/
+
+    /*        border: 1px solid red;*/
+    /*    }*/
+    /*    .first-page .subtitle{*/
+    /*        position: static;*/
+
+    /*        border: 1px solid red;*/
+    /*    }*/
+    /*    .items-wrapper img{*/
+    /*        display: none;*/
+    /*    }*/
+    /*    .definition h2 span:nth-child(1){*/
+    /*        font-size: 45px;*/
+    /*    }*/
+    /*    .third-page #subtitle-2{*/
+    /*        font-size: 45px;*/
+    /*        border: 1px solid red;*/
+    /*    }*/
+    /*    .grid-container{*/
+    /*        display: grid;*/
+    /*        grid-template-columns: repeat(1, 1fr);*/
+    /*    }*/
+    /*    .box{*/
+    /*        width: 300px;*/
+    /*        height: 220px;*/
+    /*    }*/
+    /*}*/
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Buláwan - Web Design Services</title>
+</head>
+<body>
+    <nav>
+        <div class="logo-container">
+            <h1>BULÁWAN</h1>
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 512 512">
+                <g>
+                    <path d="m256,11c-135.1,0-245,109.9-245,245s109.9,245 245,245c135.1,0 245-109.9 245-245s-109.9-245-245-245zm189.9,170c-18.4-10.6-40.8-19.4-66.3-26.2-7.7-31.3-18.8-59-32.6-81.5 44.8,22.4 80.3,60.8 98.9,107.7zm-111.3-35.5c-18.4-2.8-37.9-4.6-58.2-5.3v-82.8c22.5,12.2 44.2,43.5 58.2,88.1zm-99-88.1v82.8c-20.3,0.7-39.8,2.5-58.2,5.3 14-44.6 35.7-75.9 58.2-88.1zm-70.6,15.9c-13.8,22.5-24.9,50.2-32.6,81.5-25.5,6.8-47.9,15.7-66.3,26.2 18.6-46.9 54.1-85.3 98.9-107.7zm-113.2,182.7c0-18.2 26-40.5 72.3-56.1-2.2,18-3.4,36.7-3.4,56.1 0,19.4 1.2,38.1 3.4,56.1-46.3-15.6-72.3-37.9-72.3-56.1zm14.3,75c18.4,10.6 40.8,19.4 66.3,26.2 7.7,31.3 18.8,59 32.6,81.5-44.8-22.4-80.3-60.8-98.9-107.7zm95.5-75c0-24 2-46.5 5.5-67.3 20.5-4 43.4-6.7 68.5-7.6v149.8c-25.1-1-48-3.7-68.5-7.6-3.5-20.8-5.5-43.3-5.5-67.3zm15.8,110.5c18.4,2.8 37.9,4.6 58.2,5.3v82.8c-22.5-12.2-44.2-43.5-58.2-88.1zm99,88.1v-82.8c20.3-0.7 39.8-2.5 58.2-5.3-14,44.6-35.7,75.9-58.2,88.1zm0-123.7v-149.8c25.1,1 48,3.7 68.5,7.6 3.5,20.7 5.5,43.3 5.5,67.3s-2,46.5-5.5,67.3c-20.5,3.9-43.4,6.6-68.5,7.6zm70.6,107.8c13.8-22.5 25-50.2 32.6-81.5 25.5-6.8 47.9-15.6 66.3-26.2-18.6,46.9-54.1,85.3-98.9,107.7zm40.8-126.6c2.2-18 3.4-36.7 3.4-56.1 0-19.4-1.2-38.1-3.4-56.1 46.4,15.6 72.3,37.9 72.3,56.1 0.1,18.2-25.9,40.5-72.3,56.1z"/>
+                </g>
+            </svg>
+
+        </div>
+
+        <ul>
+            <li><a href="#page-one">About Us</a></li>
+            <li><a href="#page-two">Values</a></li>
+            <li><a href="#page-three">Benefits</a></li>
+            <li><a href="#page-four">FAQS</a></li>
+        </ul>
+
+        <div class="social-container">
+            <a href=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"/></svg></a>
+            <a href="https://www.instagram.com/bulawandigital/" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M224,202.66A53.34,53.34,0,1,0,277.36,256,53.38,53.38,0,0,0,224,202.66Zm124.71-41a54,54,0,0,0-30.41-30.41c-21-8.29-71-6.43-94.3-6.43s-73.25-1.93-94.31,6.43a54,54,0,0,0-30.41,30.41c-8.28,21-6.43,71.05-6.43,94.33S91,329.26,99.32,350.33a54,54,0,0,0,30.41,30.41c21,8.29,71,6.43,94.31,6.43s73.24,1.93,94.3-6.43a54,54,0,0,0,30.41-30.41c8.35-21,6.43-71.05,6.43-94.33S357.1,182.74,348.75,161.67ZM224,338a82,82,0,1,1,82-82A81.9,81.9,0,0,1,224,338Zm85.38-148.3a19.14,19.14,0,1,1,19.13-19.14A19.1,19.1,0,0,1,309.42,189.74ZM400,32H48A48,48,0,0,0,0,80V432a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V80A48,48,0,0,0,400,32ZM382.88,322c-1.29,25.63-7.14,48.34-25.85,67s-41.4,24.63-67,25.85c-26.41,1.49-105.59,1.49-132,0-25.63-1.29-48.26-7.15-67-25.85s-24.63-41.42-25.85-67c-1.49-26.42-1.49-105.61,0-132,1.29-25.63,7.07-48.34,25.85-67s41.47-24.56,67-25.78c26.41-1.49,105.59-1.49,132,0,25.63,1.29,48.33,7.15,67,25.85s24.63,41.42,25.85,67.05C384.37,216.44,384.37,295.56,382.88,322Z"/></svg></a>
+        </div>
+    </nav>
+
+    <div class="first-page" id="page-one">
+        <div class="text">
+            <div class="title">Success Through Creative Web Design</div>
+            <div class="subtitle">We are a freelance web design service that design websites guaranteed to
+                fit your brand as well as enhance awareness for it.
+            </div>
+        </div>
+        <div class="circle-gradient"></div>
+    </div>
+    <div class="second-page" id="page-two">
+        <h1 id="title">OUR VALUES</h1>
+        <div class="items-wrapper">
+            <img src="angelSVG.svg" alt="">
+            <div class="definitions-container">
+                <div class="definition">
+                    <h2><span>Commitment</span> <br>
+                        <span>\ kə-ˈmit-mənt  \</span> <br>
+                        <span>the state or quality of being dedicated to a cause, activity, etc.</span>
+                    </h2>
+                </div>
+
+                <div class="definition">
+                    <h2><span>Passion</span> <br>
+                        <span>\ ˈpa-shən  \</span> <br>
+                        <span>a strong liking or desire for or devotion to some activity, object, or concept.</span>
+                    </h2>
+                </div>
+
+                <div class="definition">
+                    <h2><span>Discipline</span> <br>
+                        <span>\ ˈdi-sə-plən  \</span> <br>
+                        <span>orderly or prescribed conduct or pattern of behavior.</span>
+                    </h2>
+                </div>
+
+                <div class="definition">
+                    <h2><span>Trust</span> <br>
+                        <span>\ ˈtrəst  \</span> <br>
+                        <span>assured reliance on the character, ability, strength, or truth of someone or something.</span>
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="third-page" id="page-three">
+        <h1 id="title-2">BENEFITS</h1>
+        <h2 id="subtitle-2">We are a team that offers value and openness through a distinctive design.</h2>
+        <div class="grid-container">
+            <div class="box">
+                <h1>Swift Delivery</h1>
+                <h2>Receive the concept design of your site within just a few days</h2>
+            </div>
+            <div class="box">
+                <h1>Quality Professionalism</h1>
+                <h2>Quality is important to us. Only the greatest standards are used by our designer.</h2>
+            </div>
+            <div class="box">
+                <h1>Client Comes First</h1>
+                <h2>As many revisions as you need to achieve a completely satisfactory result.</h2>
+            </div>
+            <div class="box">
+                <h1>Responsiveness</h1>
+                <h2>We want your website to look good not only on one type of device but any device.</h2>
+            </div>
+            <div class="box">
+                <h1>Price Negotiable</h1>
+                <h2>Being affordable is our goal, all our prices are completely negotiable depending on the scope of the project.</h2>
+            </div>
+            <div class="box">
+                <h1>Maintenance</h1>
+                <h2>Once the website is finished and online we will be responsible for the maintenance with no extra charge.</h2>
+            </div>
+        </div>
+    </div>
+    <div class="fourth-page" id="page-four">
+        <h1 id="title-3">Any Questions?</h1>
+        <div class="FAQ-container">
+            <div class="FAQ">
+                <div class="FAQ-wrapper">
+                    <h1>How does the whole process work?</h1>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M432 256c0 17.69-14.33 32.01-32 32.01H256v144c0 17.69-14.33 31.99-32 31.99s-32-14.3-32-31.99v-144H48c-17.67 0-32-14.32-32-32.01s14.33-31.99 32-31.99H192v-144c0-17.69 14.33-32.01 32-32.01s32 14.32 32 32.01v144h144C417.7 224 432 238.3 432 256z"/>
+                    </svg>
+                </div>
+                <div class="content">
+                    <h3>Contact us through the provided email or through any of our other provided social media & tell us about
+                        your project in greater detail. Once your project gets reviewed by our team we will reach out to you through
+                        email.
+                    </h3>
+                </div>
+            </div>
+            <div class="FAQ">
+                <div class="FAQ-wrapper">
+                    <h1>How do I go about providing the initial materials?</h1>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M432 256c0 17.69-14.33 32.01-32 32.01H256v144c0 17.69-14.33 31.99-32 31.99s-32-14.3-32-31.99v-144H48c-17.67 0-32-14.32-32-32.01s14.33-31.99 32-31.99H192v-144c0-17.69 14.33-32.01 32-32.01s32 14.32 32 32.01v144h144C417.7 224 432 238.3 432 256z"/>
+                    </svg>
+                </div>
+                <div class="content">
+                    <h3>
+                        The most common way how you as the client can provide the initial materials (e.g., logos, text content) is a link
+                        to a google doc containing the necessary information, you can also provide the materials needed through email, as long
+                        as it gets to us it's perfectly fine.
+                    </h3>
+                </div>
+            </div>
+            <div class="FAQ">
+                <div class="FAQ-wrapper">
+                    <h1>How do revisions work?</h1>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M432 256c0 17.69-14.33 32.01-32 32.01H256v144c0 17.69-14.33 31.99-32 31.99s-32-14.3-32-31.99v-144H48c-17.67 0-32-14.32-32-32.01s14.33-31.99 32-31.99H192v-144c0-17.69 14.33-32.01 32-32.01s32 14.32 32 32.01v144h144C417.7 224 432 238.3 432 256z"/>
+                    </svg>
+                </div>
+                <div class="content">
+                    <h3>
+                        You will be given access to a Trello board where all requests, edits, and communication will be handled.
+                    </h3>
+                </div>
+            </div>
+            <div class="FAQ">
+                <div class="FAQ-wrapper">
+                    <h1>Can you also create websites?</h1>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M432 256c0 17.69-14.33 32.01-32 32.01H256v144c0 17.69-14.33 31.99-32 31.99s-32-14.3-32-31.99v-144H48c-17.67 0-32-14.32-32-32.01s14.33-31.99 32-31.99H192v-144c0-17.69 14.33-32.01 32-32.01s32 14.32 32 32.01v144h144C417.7 224 432 238.3 432 256z"/>
+                    </svg>
+                </div>
+                <div class="content">
+                    <h3>
+                        We can certainly accomplish it! Currently, we are using Jetbrains WebStorm as our main application to develop websites.
+                    </h3>
+                </div>
+            </div>
+            <div class="FAQ">
+                <div class="FAQ-wrapper">
+                    <h1>What software do you use?</h1>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M432 256c0 17.69-14.33 32.01-32 32.01H256v144c0 17.69-14.33 31.99-32 31.99s-32-14.3-32-31.99v-144H48c-17.67 0-32-14.32-32-32.01s14.33-31.99 32-31.99H192v-144c0-17.69 14.33-32.01 32-32.01s32 14.32 32 32.01v144h144C417.7 224 432 238.3 432 256z"/>
+                    </svg>
+                </div>
+                <div class="content">
+                    <h3>
+                        We use Affinity Designer, Adobe Photoshop, Adobe Illustrator, Visual Studio Code, and Jetbrains Webstorm
+                    </h3>
+                </div>
+            </div>
+            <div class="FAQ">
+                <div class="FAQ-wrapper">
+                    <h1>How long does it take to deliver designs</h1>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M432 256c0 17.69-14.33 32.01-32 32.01H256v144c0 17.69-14.33 31.99-32 31.99s-32-14.3-32-31.99v-144H48c-17.67 0-32-14.32-32-32.01s14.33-31.99 32-31.99H192v-144c0-17.69 14.33-32.01 32-32.01s32 14.32 32 32.01v144h144C417.7 224 432 238.3 432 256z"/>
+                    </svg>
+                </div>
+                <div class="content">
+                    <h3>
+                        Before receiving the initial materials (e.g., logo, text content) we will give you questions to answer in order
+                        to get a better understanding of your project and how you want the end result to be. The first drafts will be given
+                        within a few business days after receiving the initial materials and answers to the questions we've sent you.
+                    </h3>
+                </div>
+            </div>
+            <div class="FAQ">
+                <div class="FAQ-wrapper">
+                    <h1>How can I contact you?</h1>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M432 256c0 17.69-14.33 32.01-32 32.01H256v144c0 17.69-14.33 31.99-32 31.99s-32-14.3-32-31.99v-144H48c-17.67 0-32-14.32-32-32.01s14.33-31.99 32-31.99H192v-144c0-17.69 14.33-32.01 32-32.01s32 14.32 32 32.01v144h144C417.7 224 432 238.3 432 256z"/>
+                    </svg>
+                </div>
+                <div class="content">
+                    <h3>
+                        If you have any more queries that you have not found answers to elsewhere, you can contact us through our email at
+                        bulawandigital@gmail.com, or through our instagram and facebook.
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <div class="more-info-container">
+            <h1>LOOKING FOR MORE INFO?</h1>
+            <h2>bulawandigital@gmail.com</h2>
+        </div>
+    </div>
+    <script>
+        const accordion = document.getElementsByClassName("FAQ");
+
+        for(let i = 0; i < accordion.length; i++) {
+            accordion[i].addEventListener("click", function(){
+                this.classList.toggle("active");
+            })
+        }
+    </script>
+</body>
+</html>
